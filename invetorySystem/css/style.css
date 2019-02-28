@@ -1,0 +1,25 @@
+
+/*
+General styling
+*/
+
+.logo-style img{
+    width: 10%;
+}
+
+/*
+Specific styling for login page
+*/
+
+.btn-custom-login{
+    color: white !important;
+    background-color: #034695 !important;
+}
+
+
+/* Specific styling for sales agent page */
+
+.btn-custom-cancel{
+    color: white !important;
+    background-color: #BD0707 !important;
+}

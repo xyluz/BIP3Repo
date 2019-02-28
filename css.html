@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS | Class One</title>
+</head>
+<body>
+
+    <style>
+        
+        p{
+            border: solid 1px purple; 
+            /* text-align: center; */
+            /* width: 40%; */
+        }
+
+        .unique-paragraph{
+            background-color: aqua;
+        }
+
+        .another-paragraph{
+            background-color: bisque;
+        }
+
+        #this-id{
+
+            border: solid 1px blue; 
+            text-align: center;
+           background-image: url('img/test.jpg');
+           background-position: center center;
+        }
+
+        p,label,span{
+            color: red;
+        }
+
+        .link-div a{
+            color: black;
+            text-decoration: none;
+        }
+
+        .link-a-itself{
+            color: black;
+            text-decoration: none;
+        }
+
+        .first-p{
+            width: 40%;
+            padding-top: 40%;
+            margin: auto;
+            position: fixed;
+           
+            background-color:blanchedalmond;
+        }
+
+    </style>
+    
+    <p class="first-p">
+        This is a paragraph And OBVIOUS DIV
+    </p>
+
+    <div id="this-id">
+        This is a DIV
+    </div>
+
+    <span style="border: solid 1px green; text-align: center">
+        This is span 1
+    </span>
+
+    <span id="this-id" style="border: solid 1px pink; text-align: center">
+        This is span 2
+    </span>
+
+    <div style="border: solid 1px firebrick; text-align: center">
+        <a class="link-a-itself" href="home.html">Click to return home</a>
+    </div>
+    <div>
+        <label for="input-texx">
+            This is a label
+        </label>
+        <input class="input-texx" id="input-texx" type="text" placeholder="this is a text" />
+    </div>
+
+    <p class="another-paragraph">
+        This is a new paragraph
+    </p>
+
+    <p class="unique-paragraph">
+        This will have a unique style
+    </p>
+
+    <p class="unique-paragraph">
+            This will have a unique style
+    </p>
+
+    
+    
+        
+</body>
+</html>

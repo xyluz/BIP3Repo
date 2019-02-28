@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Class One</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body style="padding: 20px;">
+
+    <script>
+        
+        function Calculate(unitsofpurchase,availableunitsinstore,priceperunitforproduct){
+                      
+           var units = parseInt(unitsofpurchase);
+          
+           var availableUnits = parseInt(availableunitsinstore.innerHTML);
+           var newAvailableUnits = availableUnits - units;
+           availableunitsinstore.innerHTML = newAvailableUnits;
+
+          
+            var pricePerUnit = parseFloat(priceperunitforproduct);
+
+            var getPresentSubtotal = parseInt(document.getElementById('subtotal').innerHTML);
+
+
+            var subtotal = getPresentSubtotal + (pricePerUnit * units); 
+
+            var vat =  (5*subtotal)/100  
+
+            var total = subtotal + vat;
+           
+            document.getElementById('subtotal').innerHTML = subtotal;
+            document.getElementById('vat').innerHTML = vat;
+            document.getElementById('total').innerHTML = total;
+
+        }
+
+        let  deleteProduct = (a,b,c,d)=>{
+                      
+            document.getElementById(a).style = "display:none";
+            document.getElementById(b).style = "display:none";
+            document.getElementById(c).style = "display:block";
+            d.style = "display:none";          
+
+        }
+
+        function addProduct(){
+            document.getElementById('productblankhead').style="display:block";
+            document.getElementById('productblankcontent').style="display:block";
+            document.getElementById('productbblankdeletebutton').style="display:block";
+
+        }
+       
+    </script>
+    <p>
+       <strong>Subtotal :</strong> <span id="subtotal">0</span><br />
+       <strong>VAT (5%) :</strong> <span id="vat">0</span><br />
+       <strong>Total:</strong> &#8358; <span id="total">0</span><br />
+    </p>
+
+    <h4 id="product1head">Product Name: Palasa Cat (#3982)</h4>
+    <p id="product1content">
+       <strong>Unit Purchse : </strong> <input onkeyup="Calculate(this.value,document.getElementById('aq1'),document.getElementById('ppu1').innerHTML)" type="text" size="3" maxlength="5" /><br />
+      <strong>Available Quantity: </strong><span id="aq1">20</span>
+      
+     <br />
+
+      <strong>Price per Unit: </strong><span id="ppu1">14000</span>
+
+    </p>
+    <p>
+        <button id="product1deletebutton" onclick="deleteProduct('product1head','product1content','product1deletemsg',this)" class="btn btn-sm btn-danger" title="Delete product #3982"><i class="fa fa-trash"></i></button><span id="product1deletemsg" class="text-info" style="display:none;"> Product #3982 deleted</span>
+    
+    </p>
+
+
+   <hr />
+
+   <h4 id="product2head">Product Name: Palasa Phone (#7482)</h4>
+   <p id="product2content">
+    <strong>Unit Purchse : </strong> <input onkeyup="Calculate(this.value,document.getElementById('aq2'),document.getElementById('ppu2').innerHTML)"
+     type="text" size="3" maxlength="5" /><br />
+
+   <strong>Available Quantity: </strong><span id="aq2">50</span>
+   
+  <br />
+   <strong>Price per Unit: </strong><span id="ppu2">1000</span>
+
+
+   <p>
+        <button id="product2deletebutton" onclick="deleteProduct('product2head','product2content','product2deletemsg',this)" class="btn btn-sm btn-danger" title="Delete product #3982"><i class="fa fa-trash"></i></button><span id="product2deletemsg" class="text-info" style="display:none;"> Product #3982 deleted</span>
+    
+    </p>
+
+
+   <hr />
+   <h4 id="product3head">Product Name: Kakamu Wallet (#1880)</h4>
+   <p id="product3content">
+    <strong>Unit Purchse : </strong> <input onkeyup="Calculate(this.value,document.getElementById('aq3'),document.getElementById('ppu3').innerHTML)"
+     type="text" size="3" maxlength="5" /><br />
+
+   <strong>Available Quantity: </strong><span id="aq3">200</span>
+   
+  <br />
+   <strong>Price per Unit: </strong><span id="ppu3">500</span>
+   <p>
+        <button id="product3deletebutton" onclick="deleteProduct('product3head','product3content','product3deletemsg',this)" class="btn btn-sm btn-danger" title="Delete product #3982"><i class="fa fa-trash"></i></button><span id="product3deletemsg" class="text-info" style="display:none;"> Product #1880 deleted</span>
+    
+    </p>
+
+
+    <hr />
+    
+   <h4 id="productblankhead" style="display:none">Product Name: Blan (#0000)</h4>
+   <p id="productblankcontent" style="display: none">
+    <strong>Unit Purchse : </strong> <input onkeyup="Calculate(this.value,document.getElementById('aq3'),document.getElementById('ppu3').innerHTML)"
+     type="text" size="3" maxlength="5" /><br />
+
+   <strong>Available Quantity: </strong><span id="aq3">200</span>
+   
+  <br />
+   <strong>Price per Unit: </strong><span id="ppu3">500</span>
+   
+   <p>
+        <button style="display:none;" id="productbblankdeletebutton" onclick="deleteProduct('productblankhead','productblankcontent','productblankdeletemsg',this)" class="btn btn-sm btn-danger" title="Delete product #3982"><i class="fa fa-trash"></i></button><span id="productblankdeletemsg" class="text-info" style="display:none;"> Product #1880 deleted</span>
+    
+    </p>
+   
+
+</p>
+<p>
+        <button onclick="addProduct()" class="btn btn-sm btn-primary" title="Add new product"><i class="fa fa-plus"></i></button>
+    
+    </p>
+    <p>
+        <button onclick="window.print()" class="btn btn-success btn-sm" type="button">
+           Print Order
+        </button>
+
+    </p>
+
+
+</body>
+
+</html>
