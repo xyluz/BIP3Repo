@@ -10,36 +10,21 @@ $error .= $name == "" ? "Name is required <br />" : "";
 $error .= $password == "" ? "Password is required <br />" : "";
 $error .= $email == "" ? "Email is required <br />" : "";
 
-$error != '' ? print_r($error); die() : false;
+
+if($error){
+    print_r($error); 
+    die();
+}
 
 $encrypted_password = md5($password);
 
 //connect to database
 
-$host = '127.0.0.1'; //localhost
-$username = 'root';
-$password = '';
-$db_name = 'samplefortesting2';
-
-
-$connect = new mysqli($host,$username,$password,$db_name);
-
-if($connect){
-    echo "connected!";
-}else{
-    echo 'an error occured ' . $connect->connect_error;
-}
-
-//check if email already exists in my database.
-//if email exists, send them back to text,php with a message, you already have an account
-//if email doesn't exist, then sign them up
+require_once('lib/dbconnection.php');
 
 $check_db_for_email = "SELECT id FROM sampletable1 WHERE email='".$email . "'";
 
 $test = $connect->query($check_db_for_email);
-
-// print_r($test->num_rows);
-// die();
 
 
 if($test->num_rows > 0){
@@ -49,7 +34,6 @@ if($test->num_rows > 0){
     die();
 
 }
-
 
 
 //create the query
